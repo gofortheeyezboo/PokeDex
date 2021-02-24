@@ -22,16 +22,18 @@
     </header>
     <main class="container-fluid">
         <div class="row">
-            <div class="col-3 bg-info spells overflow-auto">
-                <h1>DND API Spell</h1>
-                <ul id="api-spells"></ul>
+            <div class="col-3 bg-info wild-pokemon overflow-auto">
+                <h1>All Pokemon</h1>
+                <ul id="wild-pokemon"></ul>
+                <button onclick="app.pokeApiController.prev()">Previous</button>
+                <button onclick="app.pokeApiController.next()">Next</button>
             </div>
-            <div class="col-6" id="active-spell">
+            <div class="col-6" id="active-pokemon">
 
             </div>
-            <div class="col-3 bg-info spells">
-                <h1>My Spellbook</h1>
-                <ul id="my-spells"></ul>
+            <div class="col-3 bg-info my-pokemon">
+                <h1>My Pokemon</h1>
+                <ul id="my-pokemon"></ul>
             </div>
         </div>
 
