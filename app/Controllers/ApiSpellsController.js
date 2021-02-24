@@ -12,7 +12,11 @@ function _drawDndApiSpells(){
 }
 
 function _drawActiveSpell(){
-  document.getElementById("active-spell").innerHTML = ProxyState.activeSpell.ActiveTemplate
+  if(ProxyState.activeSpell){
+    document.getElementById("active-spell").innerHTML = ProxyState.activeSpell.ActiveTemplate
+  }else {
+    document.getElementById("active-spell").innerHTML = ""
+  }
 }
 
 export default class ApiSpellsController{

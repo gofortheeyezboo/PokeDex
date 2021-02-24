@@ -9,6 +9,8 @@ class AppState extends EventEmitter {
   dndApiSpells = []
   /**@type {Spell} */
   activeSpell = null
+  /**@type {Spell[]} */
+  mySpells = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

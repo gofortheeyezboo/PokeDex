@@ -1,10 +1,15 @@
 export default class Spell{
   constructor(data){
     this.name = data.name
-    this.description = data.desc
+    this.description = data.desc || data.description
     this.range = data.range
-    this.level = data.level
+    this.level = data.level || "No level provided"
     this.duration = data.duration
+    this._id = data._id 
+
+    if(Array.isArray(this.description)){
+      this.description = this.description.join("\n")
+    }
   }
 
   get ActiveTemplate(){
@@ -16,9 +21,21 @@ export default class Spell{
                         <p class="card-text">Range: ${this.range}</p>
                         <p class="card-text">Level: ${this.level}</p>
                         <p class="card-text">Duration: ${this.duration}</p>
+                        ${this.ButtonBuilder}
                     </div>
       </div>
     `
+  }
+
+  get ButtonBuilder(){
+    if(this._id){
+      return `
+      <button class="btn btn-danger" onclick="app.mySpellsController.unlearnSpell()">Unlearn Spell</button>
+      `
+    }
+    return `
+      <button class="btn btn-success" onclick="app.mySpellsController.learnSpell()">Learn Spell</button>
+      `
   }
 
 }
